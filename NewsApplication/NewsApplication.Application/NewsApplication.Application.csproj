@@ -6,4 +6,19 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\NewsApplication.Core\NewsApplication.Core.csproj" />
+      <ProjectReference Include="..\NewsApplication.Models\NewsApplication.Models.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="EntityCQ\Announcements\Queries\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.1.1" />
+      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjectionFixed" Version="5.1.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.20" />
+    </ItemGroup>
+
 </Project>

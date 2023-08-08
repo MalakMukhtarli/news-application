@@ -2,11 +2,11 @@
 
 namespace NewsApplication.Models.Entities;
 
-public class News : CommonEntity
+public class Announcement : CommonEntity
 {
-    public News()
+    public Announcement()
     {
-        NewsFiles = new HashSet<NewsFile>();
+        AnnouncementFiles = new HashSet<AnnouncementFile>();
         Likes = new HashSet<Like>();
         Comments = new HashSet<Comment>();
     }
@@ -14,7 +14,7 @@ public class News : CommonEntity
     public string Title { get; set; }
     public string Description { get; set; }
     
-    public virtual ICollection<NewsFile> NewsFiles { get; set; }
+    public virtual ICollection<AnnouncementFile> AnnouncementFiles { get; set; }
     public virtual ICollection<Like> Likes { get; set; }
     public virtual ICollection<Comment> Comments { get; set; }
 

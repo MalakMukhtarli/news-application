@@ -2,10 +2,10 @@
 
 namespace NewsApplication.Models.Entities;
 
-public class NewsFile : BaseEntity
+public class AnnouncementFile : BaseEntity
 {
-    public int NewsId { get; set; }
-    public virtual News News { get; set; }
+    public int AnnouncementId { get; set; }
+    public virtual Announcement Announcement { get; set; }
     public int FileId { get; set; }
     public virtual File File { get; set; }
 }

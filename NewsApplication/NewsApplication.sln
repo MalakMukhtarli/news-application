@@ -4,8 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsApplication.Application
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsApplication.MVC", "NewsApplication.MVC\NewsApplication.MVC.csproj", "{13AAA1D1-AA9B-40E8-BF7B-220C36B5665B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsApplication.Domain", "NewsApplication.Domain\NewsApplication.Domain.csproj", "{D5E7E121-160D-4BDD-8051-EAFA88F26300}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsApplication.Persistence", "NewsApplication.Persistence\NewsApplication.Persistence.csproj", "{4FED98F4-AB9E-4097-938E-8063D5EDDE37}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsApplication.Core", "NewsApplication.Core\NewsApplication.Core.csproj", "{393FFFB1-32B2-4377-87EF-E12ACA7A98E6}"
@@ -26,10 +24,6 @@ Global
 		{13AAA1D1-AA9B-40E8-BF7B-220C36B5665B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13AAA1D1-AA9B-40E8-BF7B-220C36B5665B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13AAA1D1-AA9B-40E8-BF7B-220C36B5665B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D5E7E121-160D-4BDD-8051-EAFA88F26300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5E7E121-160D-4BDD-8051-EAFA88F26300}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5E7E121-160D-4BDD-8051-EAFA88F26300}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5E7E121-160D-4BDD-8051-EAFA88F26300}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4FED98F4-AB9E-4097-938E-8063D5EDDE37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4FED98F4-AB9E-4097-938E-8063D5EDDE37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FED98F4-AB9E-4097-938E-8063D5EDDE37}.Release|Any CPU.ActiveCfg = Release|Any CPU

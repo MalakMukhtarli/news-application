@@ -6,4 +6,15 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.20" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.20" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.20" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NewsApplication.Core\NewsApplication.Core.csproj" />
+      <ProjectReference Include="..\NewsApplication.Models\NewsApplication.Models.csproj" />
+    </ItemGroup>
+
 </Project>

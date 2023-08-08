@@ -5,6 +5,6 @@ namespace NewsApplication.Models.Entities;
 public class Like : CommonEntity
 {
     public bool IsLike { get; set; }
-    public int NewsId { get; set; }
-    public virtual News News { get; set; }
+    public int AnnouncementId { get; set; }
+    public virtual Announcement Announcement { get; set; }
 }

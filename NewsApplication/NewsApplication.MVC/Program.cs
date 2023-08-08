@@ -1,4 +1,10 @@
+using NewsApplication.Core.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
+
+services.InstallServicesInAssembly(builder.Configuration);
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

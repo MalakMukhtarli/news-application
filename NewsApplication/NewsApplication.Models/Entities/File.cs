@@ -7,10 +7,10 @@ public class File : BaseEntity
 {
     public File()
     {
-        NewsFiles = new HashSet<NewsFile>();
+        AnnouncementFiles = new HashSet<AnnouncementFile>();
     }
     
     public string Name { get; set; }
     
-    public virtual ICollection<NewsFile> NewsFiles { get; set; }
+    public virtual ICollection<AnnouncementFile> AnnouncementFiles { get; set; }
 }

@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using NewsApplication.Application.EntityCQ.Announcements.Commands;
 using NewsApplication.MVC.Models;
 
 namespace NewsApplication.MVC.Controllers;
@@ -7,14 +9,17 @@ namespace NewsApplication.MVC.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IMediator _mediator;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IMediator mediator)
     {
         _logger = logger;
+        _mediator = mediator;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index(AnnouncementPostCommand postCommand)
     {
+        var response  = await _mediator.Send(postCommand);
         return View();
     }
 
