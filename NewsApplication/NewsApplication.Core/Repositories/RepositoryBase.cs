@@ -1,19 +1,22 @@
 ﻿using System.Linq.Expressions;
 using System.Transactions;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
+using NewsApplication.Models.Entities;
 using NewsApplication.Models.Entities.Common;
 
 namespace NewsApplication.Core.Repositories;
 
 public abstract class RepositoryBase<T> : IRepositoryAsync<T> where T : BaseEntity, ISoftDeletedEntity
 {
-    protected readonly DbContext _databaseContext;
+    protected readonly IdentityDbContext<User, IdentityRole<int>, int> _databaseContext;
     private DatabaseFacade Database => _databaseContext.Database;
     private IDbContextTransaction Transaction => Database.CurrentTransaction;
 
-    public RepositoryBase(DbContext databaseContext)
+    public RepositoryBase(IdentityDbContext<User, IdentityRole<int>, int> databaseContext)
     {
         _databaseContext = databaseContext ?? throw new ArgumentNullException(nameof(databaseContext));
     }

@@ -17,9 +17,9 @@ public class HomeController : Controller
         _mediator = mediator;
     }
 
-    public async Task<IActionResult> Index(AnnouncementPostCommand postCommand)
+    public IActionResult Index()//AnnouncementPostCommand postCommand)
     {
-        var response  = await _mediator.Send(postCommand);
+        // var response  = await _mediator.Send(postCommand);
         return View();
     }
 

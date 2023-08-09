@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using NewsApplication.Models.Entities;
 
 namespace NewsApplication.Persistence.Context;
 
-public class NewsAppDbContext : DbContext
+public class NewsAppDbContext : IdentityDbContext<User, IdentityRole<int>, int>
 {
     public NewsAppDbContext(DbContextOptions<NewsAppDbContext> options) : base(options)
     {
@@ -16,9 +17,4 @@ public class NewsAppDbContext : DbContext
         modelBuilder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
     }
 
-    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    // {
-    //     base.OnConfiguring(optionsBuilder);
-    //     optionsBuilder.UseSqlServer("data source=RHD-PROG-16\\SQLEXPRESS;Initial Catalog=NewsApplication;TrustServerCertificate=True;Integrated Security=sspi");
-    // }
 }

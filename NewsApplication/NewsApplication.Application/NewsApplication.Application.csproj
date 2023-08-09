@@ -9,6 +9,7 @@
     <ItemGroup>
       <ProjectReference Include="..\NewsApplication.Core\NewsApplication.Core.csproj" />
       <ProjectReference Include="..\NewsApplication.Models\NewsApplication.Models.csproj" />
+      <ProjectReference Include="..\NewsApplication.Persistence\NewsApplication.Persistence.csproj" />
     </ItemGroup>
 
     <ItemGroup>
