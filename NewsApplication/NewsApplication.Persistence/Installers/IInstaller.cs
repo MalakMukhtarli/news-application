@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace NewsApplication.Core.Installers;
+namespace NewsApplication.Persistence.Installers;
 
 public interface IInstaller
 {

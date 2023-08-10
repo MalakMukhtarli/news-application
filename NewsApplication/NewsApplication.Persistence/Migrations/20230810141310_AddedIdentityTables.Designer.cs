@@ -12,8 +12,8 @@ using NewsApplication.Persistence.Context;
 namespace NewsApplication.Persistence.Migrations
 {
     [DbContext(typeof(NewsAppDbContext))]
-    [Migration("20230809135946_test")]
-    partial class test
+    [Migration("20230810141310_AddedIdentityTables")]
+    partial class AddedIdentityTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -387,6 +387,10 @@ namespace NewsApplication.Persistence.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")

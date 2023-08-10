@@ -4,14 +4,17 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NewsApplication.Models.Entities;
+using NewsApplication.Persistence.Context;
 
-namespace NewsApplication.Core.Installers;
+namespace NewsApplication.Persistence.Installers;
 
 public class DbContextInstaller : IInstaller
 {
     public void InstallServices(IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<IdentityDbContext<User, IdentityRole<int>, int>>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+        services.AddDbContext<IdentityDbContext<User, IdentityRole<int>, int>, NewsAppDbContext>(opt =>
+        {
+            opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+        });
     }
 }

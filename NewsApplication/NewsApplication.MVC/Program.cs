@@ -1,17 +1,13 @@
 using System.Reflection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using NewsApplication.Core.Extensions;
-using NewsApplication.Core.Repositories.Special;
 using NewsApplication.Models.Entities;
-using NewsApplication.Persistence.Context;
-using NewsApplication.Persistence.Repositories.Concrete;
+using NewsApplication.Persistence.Installers;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
-// services.InstallServicesInAssembly(builder.Configuration);
+services.InstallServicesInAssembly(builder.Configuration);
 
 services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(identityOption =>
     {
@@ -34,11 +30,11 @@ services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(identityOption =>
 builder.Services.AddControllersWithViews();
 
 services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-services.AddDbContext<IdentityDbContext<User, IdentityRole<int>, int>, NewsAppDbContext>(opt =>
-{
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
-services.AddScoped<IAnnouncementRepository, AnnouncementRepository>();
+// services.AddDbContext<IdentityDbContext<User, IdentityRole<int>, int>, NewsAppDbContext>(opt =>
+// {
+//     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+// });
+// services.AddScoped<IAnnouncementRepository, AnnouncementRepository>();
 
 var app = builder.Build();
 
