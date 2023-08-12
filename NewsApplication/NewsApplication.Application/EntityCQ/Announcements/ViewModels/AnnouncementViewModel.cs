@@ -1,8 +1,7 @@
 using NewsApplication.Application.Mappings;
-using NewsApplication.Application.ViewModels.Files;
 using NewsApplication.Models.Entities;
 
-namespace NewsApplication.Application.ViewModels.Announcements;
+namespace NewsApplication.Application.EntityCQ.Announcements.ViewModels;
 
 public class AnnouncementViewModel : IMapFrom<Announcement>
 {

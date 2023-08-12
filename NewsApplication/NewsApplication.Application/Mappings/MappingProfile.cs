@@ -1,6 +1,6 @@
 using System.Reflection;
 using AutoMapper;
-using NewsApplication.Application.ViewModels.Announcements;
+using NewsApplication.Application.EntityCQ.Announcements.ViewModels;
 using NewsApplication.Models.Entities;
 
 namespace NewsApplication.Application.Mappings;

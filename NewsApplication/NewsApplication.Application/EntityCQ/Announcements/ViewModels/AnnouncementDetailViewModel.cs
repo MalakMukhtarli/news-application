@@ -1,9 +1,9 @@
+using NewsApplication.Application.EntityCQ.Comments.ViewModels;
+using NewsApplication.Application.EntityCQ.Files.ViewModels;
 using NewsApplication.Application.Mappings;
-using NewsApplication.Application.ViewModels.Comments;
-using NewsApplication.Application.ViewModels.Files;
 using NewsApplication.Models.Entities;
 
-namespace NewsApplication.Application.ViewModels.Announcements;
+namespace NewsApplication.Application.EntityCQ.Announcements.ViewModels;
 
 public class AnnouncementDetailViewModel : IMapFrom<Announcement>
 {

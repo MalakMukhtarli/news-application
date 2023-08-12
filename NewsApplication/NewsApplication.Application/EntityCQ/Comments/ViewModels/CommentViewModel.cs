@@ -1,7 +1,7 @@
 using NewsApplication.Application.Mappings;
 using NewsApplication.Models.Entities;
 
-namespace NewsApplication.Application.ViewModels.Comments;
+namespace NewsApplication.Application.EntityCQ.Comments.ViewModels;
 
 public class CommentViewModel : IMapFrom<Comment>
 {
