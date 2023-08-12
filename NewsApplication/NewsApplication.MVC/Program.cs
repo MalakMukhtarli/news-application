@@ -1,6 +1,7 @@
-using System.Reflection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using NewsApplication.Application.EntityCQ.Announcements.Commands;
+using NewsApplication.Application.EntityCQ.Announcements.Queries;
 using NewsApplication.Models.Entities;
 using NewsApplication.Persistence.Installers;
 
@@ -8,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
 services.InstallServicesInAssembly(builder.Configuration);
-
+services.AddAutoMapper(typeof(Program));
 services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(identityOption =>
     {
         identityOption.Password.RequiredLength = 8;
@@ -29,13 +30,11 @@ services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(identityOption =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-// services.AddDbContext<IdentityDbContext<User, IdentityRole<int>, int>, NewsAppDbContext>(opt =>
-// {
-//     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-// });
-// services.AddScoped<IAnnouncementRepository, AnnouncementRepository>();
-
+// services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
+    typeof(AnnouncementPostCommand).Assembly,
+    typeof(GetAnnouncementQuery).Assembly
+));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -56,6 +55,6 @@ app.UseAuthentication();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Announcement}/{action=Index}/{id?}");
 
 app.Run();

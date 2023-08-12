@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
 using NewsApplication.Core.Repositories;
 using NewsApplication.Core.Repositories.Special;
 using NewsApplication.Models.Entities;

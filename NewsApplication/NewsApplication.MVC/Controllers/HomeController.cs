@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NewsApplication.Application.EntityCQ.Announcements.Commands;
+using NewsApplication.Application.EntityCQ.Announcements.Queries;
 using NewsApplication.MVC.Models;
 
 namespace NewsApplication.MVC.Controllers;
@@ -17,9 +18,11 @@ public class HomeController : Controller
         _mediator = mediator;
     }
 
-    public IActionResult Index()//AnnouncementPostCommand postCommand)
+    public async Task<IActionResult> Index()//AnnouncementPostCommand postCommand)
     {
         // var response  = await _mediator.Send(postCommand);
+        //var response  = await _mediator.Send(new GetAnnouncementQuery());
+
         return View();
     }
 

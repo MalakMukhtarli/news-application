@@ -41,7 +41,7 @@ public abstract class RepositoryBase<T> : IRepositoryAsync<T> where T : BaseEnti
     public IQueryable<T> GetQuery() => GetTable().Where(x => !x.Deleted).AsQueryable();
     public IQueryable<T> GetQueryNoTracking() => GetTable().Where(x => !x.Deleted).AsNoTracking().AsQueryable();
 
-    public virtual async Task<T> GetByIdAsync(int id) => await GetQuery().Where(x => x.Id == id).FirstOrDefaultAsync();
+    public virtual async Task<T?> GetByIdAsync(int id) => await GetQuery().Where(x => x.Id == id).FirstOrDefaultAsync();
 
     public async Task<IReadOnlyList<T>> GetAllAsync() => await GetQuery().ToListAsync();
 

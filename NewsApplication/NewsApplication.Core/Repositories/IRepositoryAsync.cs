@@ -27,7 +27,7 @@ public interface IRepositoryAsync<T> where T : BaseEntity
         List<Expression<Func<T, object>>> includes = null,
         bool disableTracking = true);
 
-    Task<T> GetByIdAsync(int id);
+    Task<T?> GetByIdAsync(int id);
     Task<T> AddAsync(T entity, CancellationToken cancellationToken = default);
     Task<int> AddRangeAsync(List<T> entity, CancellationToken cancellationToken = default);
     Task UpdateAsync(T entity, CancellationToken cancellationToken = default);

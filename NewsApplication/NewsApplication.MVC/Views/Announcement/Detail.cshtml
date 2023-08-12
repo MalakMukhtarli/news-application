@@ -1,0 +1,28 @@
+@model NewsApplication.Models.Entities.Announcement
+
+@{
+    ViewBag.Title = "Ətraflı";
+}
+
+
+<div class="container">
+    <div class="row">
+            <div class="col-12 py-3">
+                <div class="card" style="width: 100%;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@Model.Title</h5>
+                        <p class="card-text">
+                            @Model.Description
+                        </p>
+                        <a href="#" class="btn btn-primary">
+                            <i class="far fa-thumbs-up"></i>
+                        </a>
+                        <a href="#" class="btn btn-primary">
+                            <i class="far fa-thumbs-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

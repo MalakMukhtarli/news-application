@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using NewsApplication.Core.Repositories.Special;
+using NewsApplication.Models.Entities;
 
 namespace NewsApplication.Application.EntityCQ.Announcements.Commands;
 
@@ -20,7 +21,10 @@ public class AnnouncementPostCommand : IRequest<int>
         public async Task<int> Handle(AnnouncementPostCommand request, CancellationToken cancellationToken)
         {
 
-            return 1;
+            var announcement = new Announcement { Title = request.Title, Description = request.Description };
+
+            var entity = await _announcementRepository.AddAsync(announcement, cancellationToken);
+            return entity.Id;
         }
     }
 }
