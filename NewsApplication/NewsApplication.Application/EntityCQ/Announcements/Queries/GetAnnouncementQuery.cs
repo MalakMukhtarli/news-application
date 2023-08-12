@@ -3,13 +3,12 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using NewsApplication.Application.ViewModels.Announcements;
 using NewsApplication.Core.Repositories.Special;
-using NewsApplication.Models.Entities;
 
 namespace NewsApplication.Application.EntityCQ.Announcements.Queries;
 
-public class GetAnnouncementQuery : IRequest<List<Announcement>?>
+public class GetAnnouncementQuery : IRequest<List<AnnouncementViewModel>?>
 {
-    public class GetAnnouncementQueryHandler : IRequestHandler<GetAnnouncementQuery, List<Announcement>?>
+    public class GetAnnouncementQueryHandler : IRequestHandler<GetAnnouncementQuery, List<AnnouncementViewModel>?>
     {
         protected readonly IAnnouncementRepository _announcementRepository;
         protected readonly IMapper _mapper;
@@ -20,14 +19,20 @@ public class GetAnnouncementQuery : IRequest<List<Announcement>?>
             _mapper = mapper;
         }
 
-        public async Task<List<Announcement>?> Handle(GetAnnouncementQuery request, CancellationToken cancellationToken)
+        public async Task<List<AnnouncementViewModel>?> Handle(GetAnnouncementQuery request, CancellationToken cancellationToken)
         {
             var announcements = await _announcementRepository.GetQuery()
                 .Include(x=>x.Likes)
+                .Select(x => new AnnouncementViewModel
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    LikeCount = x.Likes.Count(y => y.IsLike),
+                    DislikeCount = x.Likes.Count(y => !y.IsLike)
+                })
                 .ToListAsync(cancellationToken: cancellationToken);
 
-            // var announcementViewModels = _mapper.Map<AnnouncementViewModel?>(announcements.FirstOrDefault());
-
+            
             return announcements;
         }
     }

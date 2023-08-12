@@ -14,9 +14,5 @@ public class CommentConfiguration : IEntityTypeConfiguration<Comment>
         
         builder.HasKey(x => x.Id);
         builder.ToTable("Comments");
-
-        builder.HasOne<Comment>()
-            .WithMany()
-            .HasForeignKey(f => f.AnnouncementId).OnDelete(DeleteBehavior.NoAction);
     }
 }

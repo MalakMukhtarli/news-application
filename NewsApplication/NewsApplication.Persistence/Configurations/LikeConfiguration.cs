@@ -14,9 +14,5 @@ public class LikeConfiguration : IEntityTypeConfiguration<Like>
         
         builder.HasKey(x => x.Id);
         builder.ToTable("Likes");
-
-        builder.HasOne<Announcement>()
-            .WithMany()
-            .HasForeignKey(f => f.AnnouncementId).OnDelete(DeleteBehavior.NoAction);
     }
 }

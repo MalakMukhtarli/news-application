@@ -14,13 +14,5 @@ public class AnnouncementFileConfiguration : IEntityTypeConfiguration<Announceme
         
         builder.HasKey(x => x.Id);
         builder.ToTable("AnnouncementFiles");
-
-        builder.HasOne<Announcement>()
-            .WithMany()
-            .HasForeignKey(f => f.AnnouncementId).OnDelete(DeleteBehavior.NoAction);
-
-        builder.HasOne<Models.Entities.File>()
-            .WithMany()
-            .HasForeignKey(f => f.FileId).OnDelete(DeleteBehavior.NoAction);
     }
 }
