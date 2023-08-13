@@ -1,7 +1,29 @@
-@model dynamic
+@model NewsApplication.Application.EntityCQ.Admin.Announcements.Commands.AnnouncementPostCommand
 
 @{
     ViewBag.Title = "Xəbərlərin əlavə olunması";
 }
 
-<h2>title</h2>
+<form method="post">
+    <div class="container-fluid px-5 py-5">
+        <div class="row mb-5">
+            <div class="mb-3 col-6">
+                <label for="announcementName" class="form-label">Xəbər başlığı</label>
+                <input type="text" class="form-control" id="announcementName" asp-for="Title">
+            </div>
+            <div class="mb-3 col-6"></div>
+    
+            <div class="mb-3 col-6">
+                <label for="announcementText" class="form-label">Xəbər mətni</label>
+                <textarea type="text" class="form-control" id="announcementText" asp-for="Description"></textarea>
+            </div>
+            <div class="mb-3 col-12"></div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3" asp-area="Admin" asp-controller="Announcement" asp-action="Create">
+                    Yeni xəbər əlavə et
+                </button>
+            </div>
+        </div>
+    
+    </div>
+</form>

@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using NewsApplication.Application.EntityCQ.Admin.Announcements.Commands;
 using NewsApplication.Application.EntityCQ.Admin.Announcements.Queries;
-using NewsApplication.Application.EntityCQ.Announcements.Commands;
 using NewsApplication.Application.EntityCQ.Announcements.Queries;
 using NewsApplication.MVC.Contract;
 
@@ -39,7 +39,7 @@ public class AnnouncementController : Controller
         return View();
     }
     
-    [HttpPost]
+    [HttpPost(Routes.AdminAnnouncement.Create)]
     public async Task<IActionResult> Create(AnnouncementPostCommand command)
     {
         var response  = await _mediator.Send(command);

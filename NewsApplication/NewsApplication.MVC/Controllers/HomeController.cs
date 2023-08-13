@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using NewsApplication.Application.EntityCQ.Announcements.Commands;
 using NewsApplication.Application.EntityCQ.Announcements.Queries;
 using NewsApplication.MVC.Models;
 

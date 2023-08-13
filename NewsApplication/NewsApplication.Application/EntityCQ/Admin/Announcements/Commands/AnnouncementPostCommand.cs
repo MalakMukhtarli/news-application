@@ -2,7 +2,7 @@
 using NewsApplication.Core.Repositories.Special;
 using NewsApplication.Models.Entities;
 
-namespace NewsApplication.Application.EntityCQ.Announcements.Commands;
+namespace NewsApplication.Application.EntityCQ.Admin.Announcements.Commands;
 
 public class AnnouncementPostCommand : IRequest<int>
 {

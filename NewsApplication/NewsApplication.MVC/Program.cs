@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using NewsApplication.Application.EntityCQ.Announcements.Commands;
+using NewsApplication.Application.EntityCQ.Admin.Announcements.Commands;
 using NewsApplication.Application.EntityCQ.Announcements.Queries;
 using NewsApplication.Models.Entities;
 using NewsApplication.Persistence.Installers;
