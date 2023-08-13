@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using NewsApplication.Application.EntityCQ.Announcements.ViewModels;
 using NewsApplication.Application.EntityCQ.Comments.ViewModels;
+using NewsApplication.Application.EntityCQ.Files.ViewModels;
 using NewsApplication.Core.Repositories.Special;
 
 namespace NewsApplication.Application.EntityCQ.Announcements.Queries;
@@ -33,7 +34,8 @@ public class GetSingleAnnouncementQuery : IRequest<AnnouncementDetailViewModel>
                         Description = x.Description,
                         LikeCount = x.Likes.Count(y => y.IsLike),
                         DislikeCount = x.Likes.Count(y => !y.IsLike),
-                        Comments = x.Comments.Select(y=> new CommentViewModel{ Text = y.Text}).ToList()
+                        Comments = x.Comments.Select(y=> new CommentViewModel{ Text = y.Text}).ToList(),
+                        Files = x.AnnouncementFiles.Select(y=> new FileViewModel{Name = y.File.Name}).ToList()
                     })
                     .FirstOrDefaultAsync(cancellationToken)
                 ;

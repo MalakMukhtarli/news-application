@@ -4,7 +4,7 @@
     ViewBag.Title = "Xəbərlərin əlavə olunması";
 }
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div class="container-fluid px-5 py-5">
         <div class="row mb-5">
             <div class="mb-3 col-6">
@@ -12,11 +12,18 @@
                 <input type="text" class="form-control" id="announcementName" asp-for="Title">
             </div>
             <div class="mb-3 col-6"></div>
-    
+
             <div class="mb-3 col-6">
                 <label for="announcementText" class="form-label">Xəbər mətni</label>
                 <textarea type="text" class="form-control" id="announcementText" asp-for="Description"></textarea>
             </div>
+            <div class="mb-3 col-6"></div>
+
+            <div class="mb-3 col-6">
+                <label for="files" class="form-label">Şəkilləri seçin</label>
+                <input class="form-control" id="files" name="files" type="file" multiple asp-for="Files">
+            </div>
+
             <div class="mb-3 col-12"></div>
             <div class="col-auto">
                 <button type="submit" class="btn btn-primary mb-3" asp-area="Admin" asp-controller="Announcement" asp-action="Create">
@@ -24,6 +31,6 @@
                 </button>
             </div>
         </div>
-    
+
     </div>
 </form>

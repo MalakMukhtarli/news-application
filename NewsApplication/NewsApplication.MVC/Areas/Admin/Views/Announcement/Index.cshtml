@@ -12,6 +12,7 @@
             <th scope="col">Xəbər başlığı</th>
             <th scope="col">Bəyənilmə sayı <i class="far fa-thumbs-up"></i></th>
             <th scope="col">Bəyənilməmə sayı <i class="far fa-thumbs-down"></i></th>
+            <th scope="col">Əməliyyatlar</th>
         </tr>
         </thead>
         <tbody>
@@ -25,6 +26,11 @@
                     <td>@announcement.Title</td>
                     <td>@announcement.LikeCount</td>
                     <td>@announcement.DislikeCount</td>
+                    <td>
+                        <a asp-area="Admin" asp-controller="Announcement" asp-action="Detail" asp-route-id="@announcement.Id">
+                            <i class="fas fa-info-circle"></i>
+                        </a>
+                    </td>
                 </tr>
             }
         }
