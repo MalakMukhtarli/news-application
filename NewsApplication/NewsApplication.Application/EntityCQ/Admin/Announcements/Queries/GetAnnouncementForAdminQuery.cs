@@ -1,6 +1,5 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using NewsApplication.Application.EntityCQ.Announcements.ViewModels;
 using NewsApplication.Application.ViewModels.Admin.Announcements.ViewModels;
 using NewsApplication.Core.Repositories.Special;
 

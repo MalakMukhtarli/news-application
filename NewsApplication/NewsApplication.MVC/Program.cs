@@ -35,6 +35,7 @@ services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
     typeof(AnnouncementPostCommand).Assembly,
     typeof(GetAnnouncementQuery).Assembly
 ));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

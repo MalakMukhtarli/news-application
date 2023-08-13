@@ -9,7 +9,7 @@ public class CommentConfiguration : IEntityTypeConfiguration<Comment>
     public void Configure(EntityTypeBuilder<Comment> builder)
     {
         builder.Property(p => p.Id).HasColumnType("integer");
-        builder.Property(p => p.Text).HasColumnType("nvarchar").IsRequired();
+        builder.Property(p => p.Text).HasColumnType("nvarchar").HasMaxLength(400).IsRequired();
         builder.Property(p => p.AnnouncementId).HasColumnType("integer");
         
         builder.HasKey(x => x.Id);

@@ -12,7 +12,7 @@ using NewsApplication.Persistence.Context;
 namespace NewsApplication.Persistence.Migrations
 {
     [DbContext(typeof(NewsAppDbContext))]
-    [Migration("20230812174438_EntityBagFix")]
+    [Migration("20230812231250_EntityBagFix")]
     partial class EntityBagFix
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -179,8 +179,8 @@ namespace NewsApplication.Persistence.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .HasMaxLength(3000)
+                        .HasColumnType("nvarchar(3000)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -246,7 +246,8 @@ namespace NewsApplication.Persistence.Migrations
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasColumnType("nvarchar");
+                        .HasMaxLength(400)
+                        .HasColumnType("nvarchar(400)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -271,7 +272,8 @@ namespace NewsApplication.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 

@@ -72,6 +72,34 @@ namespace NewsApplication.Persistence.Migrations
                 name: "FileId1",
                 table: "AnnouncementFiles");
 
+            migrationBuilder.AlterColumn<string>(
+                name: "Name",
+                table: "Files",
+                type: "nvarchar(100)",
+                maxLength: 100,
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "nvarchar");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Text",
+                table: "Comments",
+                type: "nvarchar(400)",
+                maxLength: 400,
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "nvarchar");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Description",
+                table: "Announcements",
+                type: "nvarchar(3000)",
+                maxLength: 3000,
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(1000)",
+                oldMaxLength: 1000);
+
             migrationBuilder.AddForeignKey(
                 name: "FK_AnnouncementFiles_Announcements_AnnouncementId",
                 table: "AnnouncementFiles",
@@ -130,12 +158,40 @@ namespace NewsApplication.Persistence.Migrations
                 nullable: false,
                 defaultValue: 0);
 
+            migrationBuilder.AlterColumn<string>(
+                name: "Name",
+                table: "Files",
+                type: "nvarchar",
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(100)",
+                oldMaxLength: 100);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Text",
+                table: "Comments",
+                type: "nvarchar",
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(400)",
+                oldMaxLength: 400);
+
             migrationBuilder.AddColumn<int>(
                 name: "AnnouncementId1",
                 table: "Comments",
                 type: "integer",
                 nullable: false,
                 defaultValue: 0);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Description",
+                table: "Announcements",
+                type: "nvarchar(1000)",
+                maxLength: 1000,
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(3000)",
+                oldMaxLength: 3000);
 
             migrationBuilder.AddColumn<int>(
                 name: "AnnouncementId1",

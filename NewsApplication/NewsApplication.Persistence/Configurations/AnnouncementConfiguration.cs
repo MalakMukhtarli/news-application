@@ -10,7 +10,7 @@ public class AnnouncementConfiguration : IEntityTypeConfiguration<Announcement>
     {
         builder.Property(p => p.Id).HasColumnType("integer");
         builder.Property(p => p.Title).HasColumnType("nvarchar").HasMaxLength(400).IsRequired();
-        builder.Property(p => p.Description).HasColumnType("nvarchar").HasMaxLength(1000).IsRequired();
+        builder.Property(p => p.Description).HasColumnType("nvarchar").HasMaxLength(3000).IsRequired();
         
         builder.HasKey(x => x.Id);
         builder.ToTable("Announcements");

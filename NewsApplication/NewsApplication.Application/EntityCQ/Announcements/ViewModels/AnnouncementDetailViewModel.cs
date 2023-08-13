@@ -11,6 +11,6 @@ public class AnnouncementDetailViewModel : IMapFrom<Announcement>
     public string Description { get; set; }
     public int LikeCount { get; set; }
     public int DislikeCount { get; set; }
-    public List<CommentViewModel> Comments { get; set; }
-    public List<FileViewModel> Files { get; set; }
+    public List<CommentViewModel>? Comments { get; set; }
+    public List<FileViewModel>? Files { get; set; }
 }
