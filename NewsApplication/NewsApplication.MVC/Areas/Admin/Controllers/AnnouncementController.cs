@@ -28,7 +28,7 @@ public class AnnouncementController : Controller
     [HttpGet(Routes.AdminAnnouncement.Get)]
     public async Task<IActionResult> Detail(int id)
     {
-        var response  = await _mediator.Send(new GetSingleAnnouncementQuery{Id = id});
+        var response  = await _mediator.Send(new GetSingleAnnouncementForAdminQuery{Id = id});
         
         return View(response);
     }
