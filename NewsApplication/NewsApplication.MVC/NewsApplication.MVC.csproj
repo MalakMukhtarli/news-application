@@ -21,8 +21,14 @@
       <ProjectReference Include="..\NewsApplication.Application\NewsApplication.Application.csproj" />
 
 
-
     </ItemGroup>
+
+
+    <ItemGroup>
+      <Folder Include="Pages\" />
+    </ItemGroup>
+
+
 
 
 

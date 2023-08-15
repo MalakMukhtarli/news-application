@@ -18,4 +18,12 @@ public struct Routes
         public const string Update = Base + "/admin/announcement/put";
         // public const string Delete = Base + "/announcement/delete/{id}";
     }
+    
+    public struct Auth
+    {
+        public const string Register = "/auth/register";
+        public const string Login = "/auth/login";
+        public const string Logout = "/auth/logout";
+
+    }
 }

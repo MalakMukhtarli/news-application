@@ -33,6 +33,27 @@
         <div class="col-12">
             <h2>Şərhlər</h2>
         </div>
+        
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Şərh yaz</span>
+                </div>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+            </div>
+        }
+        else
+        {
+            
+            <div class="form-group py-3">
+                <a class="btn btn-dark btn-block btn-rounded" asp-controller="Auth" asp-action="Login">
+                    Şərh yazmaq üçün daxil ol
+                </a>
+            </div>
+        }
+        
+        
         @if (Model.Comments is not null)
         {
             foreach (var comment in Model.Comments)

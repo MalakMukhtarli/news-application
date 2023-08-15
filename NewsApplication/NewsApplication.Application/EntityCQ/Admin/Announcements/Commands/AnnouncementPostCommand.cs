@@ -48,7 +48,6 @@ public class AnnouncementPostCommand : IRequest<int>
                 announcementFiles.Add(new AnnouncementFile { File = newFile });
             }
 
-            
             var announcement = new Announcement
             {
                 Title = request.Title, 

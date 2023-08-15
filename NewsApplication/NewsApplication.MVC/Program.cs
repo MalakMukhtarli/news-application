@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using NewsApplication.Application.EntityCQ.Admin.Announcements.Commands;
 using NewsApplication.Application.EntityCQ.Announcements.Queries;
 using NewsApplication.Models.Entities;
+using NewsApplication.MVC.Filters;
 using NewsApplication.Persistence.Installers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,15 +12,15 @@ var services = builder.Services;
 
 services.InstallServicesInAssembly(builder.Configuration);
 services.AddAutoMapper(typeof(Program));
-services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(identityOption =>
+services.AddIdentity<User, IdentityRole<int>>(identityOption =>
     {
-        identityOption.Password.RequiredLength = 8;
-        identityOption.Password.RequireDigit = true;
+        // identityOption.Password.RequiredLength = 5;
+        identityOption.Password.RequireDigit = false;
         identityOption.Password.RequireUppercase = false;
-        identityOption.Password.RequireLowercase = true;
+        identityOption.Password.RequireLowercase = false;
         identityOption.Password.RequireNonAlphanumeric = false;
 
-        identityOption.User.RequireUniqueEmail = false;
+        identityOption.User.RequireUniqueEmail = true;
 
         identityOption.Lockout.MaxFailedAccessAttempts = 5;  //nece defe sehv yazandan sonra block etsin
         identityOption.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15); 
@@ -27,8 +29,15 @@ services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(identityOption =>
     .AddEntityFrameworkStores<IdentityDbContext<User, IdentityRole<int>, int>>()
     .AddDefaultTokenProviders();
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+        options.SlidingExpiration = true;
+        options.AccessDeniedPath = "/Forbidden/";
+    });
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(opt=>opt.Filters.Add<ApiExceptionFilterAttribute>());
 
 // services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
@@ -51,8 +60,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",

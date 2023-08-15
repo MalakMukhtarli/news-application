@@ -10,6 +10,7 @@ public class RepositoryInstaller : IInstaller
     public void InstallServices(IServiceCollection services, IConfiguration configuration)
     {
         services.AddScoped<IAnnouncementRepository, AnnouncementRepository>();
+        services.AddScoped<ILikeRepository, LikeRepository>();
 
     }
 }
